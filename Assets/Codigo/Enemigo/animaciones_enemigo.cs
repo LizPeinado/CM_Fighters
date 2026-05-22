@@ -1,16 +1,24 @@
 using UnityEngine;
 
-public class animaciones_enemigo : MonoBehaviour
+public class AnimacionesEnemigo : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private Animator control_animacion;
+
     void Start()
     {
-        
+        control_animacion = GetComponent<Animator>();
+
+        var control_de_movimiento = GetComponent<CerebroEnemigo>();
+        control_de_movimiento.compoentes_escuchando_el_estado += al_cambiar_de_estado_del_enemigo;
     }
 
-    // Update is called once per frame
-    void Update()
+    void al_cambiar_de_estado_del_enemigo(EnemigoEstados nuevo_estado)
     {
-        
+        switch (nuevo_estado)
+        {
+            case EnemigoEstados.quieto:
+                control_animacion.SetBool("esta_caminando", false);
+            break;
+        }
     }
 }

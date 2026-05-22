@@ -5,9 +5,11 @@ using UnityEngine.Events;
 
 public class Sistema_salud : MonoBehaviour
 {
-    public int salud = 100;
+    public int salud = 1000;
 
     public UnityEvent evento;
+
+    private Animator animator;
 
     private int salud_restante{
         get => _salud_restante; 
@@ -35,12 +37,19 @@ public class Sistema_salud : MonoBehaviour
     {
         salud_restante = salud;
         //al_morir  = GetComponent<MonitorMuerte>();
+        animator = GetComponent<Animator>();
         Debug.Log($"[Sistema_salud] Salud: {salud_restante}");
     }
 
     public void restar_salud(int cantidad){
         salud_restante = salud_restante - cantidad;
-         Debug.Log($"[Sistema_salud] Salud: {salud_restante}");
+
+        if(animator != null)
+        {
+            animator.SetTrigger("RecibirGolpe");
+        }
+        
+        Debug.Log($"[Sistema_salud] Salud: {salud_restante}");
 
         if (salud_restante < 0) {
             //Aqui deberia hacer algo para matar el obj

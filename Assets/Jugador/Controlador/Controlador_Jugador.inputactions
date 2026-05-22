@@ -25,9 +25,45 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "GolpeLeve",
+                    "name": "GolpeDebil",
                     "type": "Button",
                     "id": "c00154a4-6378-48c9-adb3-68860a917f2a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "GolpeFuerte",
+                    "type": "Button",
+                    "id": "8f79c575-03d6-4851-8640-d9a4060519fe",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PatadaDebil",
+                    "type": "Button",
+                    "id": "93821ca6-2391-4ea7-9b60-a367cf8d0bda",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PatadaFuerte",
+                    "type": "Button",
+                    "id": "5597cf66-4458-47c3-9eb7-09c770f33427",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Agacharse",
+                    "type": "Button",
+                    "id": "21688518-384f-40fa-84c4-8253b6e41ee3",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -108,7 +144,51 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "GolpeLeve",
+                    "action": "GolpeDebil",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "389b1ab5-c8dc-470b-b9ce-9c105434c668",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GolpeFuerte",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "82b8b167-a437-46f5-be0c-0d1ec9ba7c1d",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PatadaDebil",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e7bd2171-a77c-4741-a9dc-ff153dcccb59",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PatadaFuerte",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "30c7dffe-fb91-4093-866e-828d6a07c3d7",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Agacharse",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

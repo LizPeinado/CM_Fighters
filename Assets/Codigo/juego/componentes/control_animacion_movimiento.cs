@@ -20,14 +20,20 @@ public class ControlAnimacionMovimiento : MonoBehaviour
 
     void al_cambiar_de_estado_del_control_de_movimiento(EstadosMovimiento nuevo_estado)
     {
-        switch (nuevo_estado)
+        control_animacion.SetBool("Quieto", false);
+        control_animacion.SetBool("Retrocede", false);
+        control_animacion.SetBool("Agachado", false);
+
+        /*switch (nuevo_estado)
         {
             case EstadosMovimiento.quieto:
                 control_animacion.SetBool("Quieto", true);
+                control_animacion.SetBool("Agachado", false);
             break;
             
             case EstadosMovimiento.caminando:
-                control_animacion.SetBool("Quieto", false);
+                //control_animacion.SetBool("Quieto", false);
+                control_animacion.SetBool("Retrocede", false);
             break;
 
             case EstadosMovimiento.Retrocediendo:
@@ -35,9 +41,32 @@ public class ControlAnimacionMovimiento : MonoBehaviour
             break;
 
             case EstadosMovimiento. saltando:
-            //case EstadosMovimiento.saltando:
+        
             break;
-            
-        }
+            case EstadosMovimiento.agachado:
+                control_animacion.SetBool("Agachado", true);
+            break;
+        }*/
+
+        switch (nuevo_estado)
+    {
+        case EstadosMovimiento.quieto:
+            control_animacion.SetBool("Quieto", true);
+        break;
+        
+        case EstadosMovimiento.caminando:
+        break;
+
+        case EstadosMovimiento.Retrocediendo:
+            control_animacion.SetBool("Retrocede", true);
+        break;
+
+        case EstadosMovimiento.agachado:
+            control_animacion.SetBool("Agachado", true);
+        break;
+
+        case EstadosMovimiento.saltando:
+        break;
+    }
     }
 }
