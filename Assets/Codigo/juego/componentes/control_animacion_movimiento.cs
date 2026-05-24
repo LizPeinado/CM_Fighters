@@ -10,7 +10,7 @@ public class ControlAnimacionMovimiento : MonoBehaviour
     void Start()
     {
         control_animacion = GetComponent<Animator>();
-
+        //AQUI LLAMA A JUGADOR MOVIMIENTO
         var control_de_movimiento = GetComponent<JugadorMovimiento>();
         control_de_movimiento.hay_gente_escuchando_el_estado += al_cambiar_de_estado_del_control_de_movimiento;
 
@@ -24,6 +24,26 @@ public class ControlAnimacionMovimiento : MonoBehaviour
         control_animacion.SetBool("Retrocede", false);
         control_animacion.SetBool("Agachado", false);
 
+        switch (nuevo_estado)
+        {
+            case EstadosMovimiento.quieto:
+                control_animacion.SetBool("Quieto", true);
+            break;
+            
+            case EstadosMovimiento.caminando:
+            break;
+
+            case EstadosMovimiento.Retrocediendo:
+                control_animacion.SetBool("Retrocede", true);
+            break;
+
+            case EstadosMovimiento.agachado:
+                control_animacion.SetBool("Agachado", true);
+            break;
+
+            case EstadosMovimiento.saltando:
+            break;
+        }
         /*switch (nuevo_estado)
         {
             case EstadosMovimiento.quieto:
@@ -47,26 +67,5 @@ public class ControlAnimacionMovimiento : MonoBehaviour
                 control_animacion.SetBool("Agachado", true);
             break;
         }*/
-
-        switch (nuevo_estado)
-    {
-        case EstadosMovimiento.quieto:
-            control_animacion.SetBool("Quieto", true);
-        break;
-        
-        case EstadosMovimiento.caminando:
-        break;
-
-        case EstadosMovimiento.Retrocediendo:
-            control_animacion.SetBool("Retrocede", true);
-        break;
-
-        case EstadosMovimiento.agachado:
-            control_animacion.SetBool("Agachado", true);
-        break;
-
-        case EstadosMovimiento.saltando:
-        break;
-    }
     }
 }

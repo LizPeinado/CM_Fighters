@@ -22,7 +22,7 @@ public class HitBox : MonoBehaviour
         if(rigidbody_del_padre == null) return;
         Vector3 direccion_empuje;
 
-        if(es_hitbox_delantera)
+        /*if(es_hitbox_delantera)
         {
             //direccion_empuje = Vector3.left;
             direccion_empuje = -transform.parent.forward;
@@ -33,6 +33,18 @@ public class HitBox : MonoBehaviour
             //direccion_empuje = Vector3.right;
             direccion_empuje = transform.parent.forward;
             Debug.Log($"Direccion empuje_D: {direccion_empuje}");
+        }*/
+        bool mirando_derecha = transform.root.forward.x > 0;
+
+        if(es_hitbox_delantera)
+        {
+            direccion_empuje =
+            mirando_derecha ? Vector3.left : Vector3.right;
+        }
+        else
+        {
+            direccion_empuje =
+            mirando_derecha ? Vector3.right : Vector3.left;
         }
 
         MovimientoEnemigo enemigo = GetComponentInParent<MovimientoEnemigo>();

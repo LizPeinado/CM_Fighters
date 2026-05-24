@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
 
@@ -35,4 +35,4 @@ public class SonidosEnemigo : MonoBehaviour
     void detenerSonido(){
         fuente_sonido.Stop();
     }
-}
+}*/

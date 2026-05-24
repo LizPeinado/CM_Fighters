@@ -184,9 +184,7 @@ public class JugadorMovimiento : MonoBehaviour
         {
             bool mirando_derecha = transform.forward.x > 0;
 
-            bool retrocediendo = 
-            (mirando_derecha && direccion_horizontal < 0) ||
-            (!mirando_derecha && direccion_horizontal > 0);
+            bool retrocediendo = (mirando_derecha && direccion_horizontal < 0) || (!mirando_derecha && direccion_horizontal > 0);
 
             if(retrocediendo)
             {

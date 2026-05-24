@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 
 public class AnimacionesEnemigo : MonoBehaviour
 {
@@ -21,4 +21,4 @@ public class AnimacionesEnemigo : MonoBehaviour
             break;
         }
     }
-}
+}*/

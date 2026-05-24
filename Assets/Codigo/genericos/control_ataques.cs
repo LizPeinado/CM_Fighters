@@ -41,7 +41,8 @@ public class ControlAtaques : MonoBehaviour
             Debug.Log("ATAQUE ESPECIAL");
         }
 
-        animator = GetComponent<Animator>();
+        
+        animator = GetComponent<Animator>();//referencia al primer Animator que encuentre
 
         /*
         Debug.Log(golpe_debil);
@@ -75,13 +76,13 @@ public class ControlAtaques : MonoBehaviour
     void hacer_golpe_fuerte(InputAction.CallbackContext _)
     {
         animator.SetTrigger("GolpeFuerte");
-        StartCoroutine(activar_ataque(puño_izquierdo,puño_derecho,30,0.3f));
+        StartCoroutine(activar_ataque(puño_izquierdo,puño_derecho,30,1f));
     }
 
     void hacer_patada_debil(InputAction.CallbackContext _)
     {
         animator.SetTrigger("PatadaDebil");
-        StartCoroutine(activar_ataque(pie_izquierdo,pie_derecho,10,0.25f));
+        StartCoroutine(activar_ataque(pie_izquierdo,pie_derecho,20,1f));
     }
 
     void hacer_patada_fuerte(InputAction.CallbackContext _)

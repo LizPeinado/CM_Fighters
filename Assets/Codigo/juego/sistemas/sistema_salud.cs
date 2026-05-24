@@ -6,9 +6,9 @@ using UnityEngine.Events;
 public class Sistema_salud : MonoBehaviour
 {
     public int salud = 1000;
+    public int salud_actual => salud_restante;
 
     public UnityEvent evento;
-
     private Animator animator;
 
     private int salud_restante{
