@@ -88,7 +88,7 @@ public class ControlAtaques : MonoBehaviour
     void hacer_patada_fuerte(InputAction.CallbackContext _)
     {
         animator.SetTrigger("PatadaFuerte");
-        StartCoroutine(activar_ataque(pie_izquierdo,pie_derecho,30,0.35f));
+        StartCoroutine(activar_ataque(pie_izquierdo,pie_derecho,60,0.35f));
     }
 
     IEnumerator activar_ataque(GolpesManos golpe1,GolpesManos golpe2,int daño,float duracion)

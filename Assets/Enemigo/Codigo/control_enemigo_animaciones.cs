@@ -22,18 +22,18 @@ public class ControlEnemigoAnimaciones : MonoBehaviour
     {
         control_animacion.SetBool("Quieto", false);
         control_animacion.SetBool("Retrocede", false);
+        control_animacion.SetBool("Salta", false);
 
         switch (nuevo_estado)
         {
             case EstadosMovimiento.quieto:
                 control_animacion.SetBool("Quieto", true);
             break;
-            
             case EstadosMovimiento.caminando:
                 control_animacion.SetBool("Quieto", false);
             break;
-
             case EstadosMovimiento.saltando:
+                control_animacion.SetBool("Salta", true);
             break;
         }
     }

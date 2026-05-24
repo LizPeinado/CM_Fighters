@@ -6,6 +6,10 @@ using UnityEngine.AI;
 
 public class MovimientoEnemigo : MonoBehaviour
 {
+    private Rigidbody rigid_body;
+    public bool esta_saltando = false;
+    public float fuerza_salto = 700f;
+
     public GameObject a_quien_seguir;
 
     private NavMeshAgent control_movimiento;
@@ -26,9 +30,42 @@ public class MovimientoEnemigo : MonoBehaviour
 
     void Start()
     {
+        rigid_body = GetComponent<Rigidbody>();
+
         control_movimiento = GetComponent<NavMeshAgent>();
 
         control_ataques = GetComponent <ControlAtaquesEnemigo>();
+    }
+
+    public void saltar()
+    {
+        if(esta_saltando) return;
+
+        Ray rayo_hacia_el_suelo = new Ray(transform.position, Vector3.down);
+
+        RaycastHit chocamos_con;
+
+        if(Physics.Raycast(rayo_hacia_el_suelo, out chocamos_con, 1.1f))
+        {
+            if(chocamos_con.collider.CompareTag("suelo"))
+            {
+                control_movimiento.enabled = false;
+                rigid_body.AddForce(Vector3.up * fuerza_salto);
+                esta_saltando = true;
+                cambiar_estado(EstadosMovimiento.saltando);
+
+                Debug.Log("ENEMIGO SALTO");
+            }
+        }
+    }
+    void OnCollisionEnter(Collision colision)
+    {
+        if(colision.gameObject.CompareTag("suelo"))
+        {
+            esta_saltando = false;
+            control_movimiento.enabled = true;
+            cambiar_estado(EstadosMovimiento.quieto);
+        }
     }
 
     void Update()
@@ -59,45 +96,10 @@ public class MovimientoEnemigo : MonoBehaviour
         }
     }
 
-    //PARA REALIZAR LAS ANIMACIONES Y ATAQUES AUTOMATICOS
-
     void FixedUpdate(){
-        /*if(Mathf.Abs(direccion_horizontal) < 0.1f)
-        {
-            cambiar_estado(EstadosMovimiento.quieto);
-        }
-        else
-        {
-            bool mirando_derecha = transform.forward.x > 0;
-
-            bool retrocediendo = (mirando_derecha && direccion_horizontal < 0) || (!mirando_derecha && direccion_horizontal > 0);
-
-            //if realizo un golpe cambiar estado a detenerse
-            //if esta en detenerse cambiar a golpear de nuevo despues de un rato
-
-            if(retrocediendo)
-            {
-                cambiar_estado(EstadosMovimiento.Retrocediendo);
-            }
-            else
-            {
-                cambiar_estado(EstadosMovimiento.caminando);
-            }
-        }
-
-        Debug.Log($"El valor es: {direccion.magnitude}");
-        if(direccion.magnitude > 0.1f){
-            avanzar(direccion);
-        }*/
+    
     }
  
-    void avanzar(Vector2 direccion_joystick)
-    {
-       //Vector3 movimiento = new Vector3(direccion_joystick.y, 0f, 0f);
-
-        //rigid_body.MovePosition(transform.position + (movimiento * velocidad_movimiento * Time.fixedDeltaTime));
-    }
-
     void cambiar_estado(EstadosMovimiento estado_nuevo)
     {
         estado_actual = estado_nuevo;

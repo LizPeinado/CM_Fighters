@@ -2,6 +2,11 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public enum TipoEnemigo
+{
+    luchador,
+    jefe_final
+}
 public enum EstadosAtaqueEnemigo
 {
     esperando,
@@ -11,6 +16,10 @@ public enum EstadosAtaqueEnemigo
 
 public class ControlAtaquesEnemigo : MonoBehaviour
 {
+    private bool jugador_muerto = false;
+    [Header("Tipo de enemigo")]
+    public TipoEnemigo tipo_enemigo;
+
     public float tiempo_espera = 1f;
     private float tiempo_transcurrido = 0f;
 
@@ -35,15 +44,39 @@ public class ControlAtaquesEnemigo : MonoBehaviour
 
     void Start()
     { 
+        configurar_tipo_enemigo();
         salud = GetComponent<Sistema_salud>();
         animator = GetComponent<Animator>();//referencia al primer Animator que encuentre
+        
+        JugadorMovimiento jugador = FindFirstObjectByType<JugadorMovimiento>();
 
+        if(jugador != null)
+        {
+            Sistema_salud salud_jugador = jugador.GetComponent<Sistema_salud>();
+            if(salud_jugador != null)
+            {
+                salud_jugador.al_morir_evento += victoria;
+            }
+        }
         /*
         Debug.Log(golpe_debil);
         Debug.Log(golpe_fuerte);
         Debug.Log(patada_debil);
         Debug.Log(patada_fuerte);
         */
+    }
+
+    void configurar_tipo_enemigo()
+    {
+        switch(tipo_enemigo)
+        {
+            case TipoEnemigo.luchador:
+                tiempo_siguiente_ataque = 1f;
+            break;
+            case TipoEnemigo.jefe_final:
+                tiempo_siguiente_ataque = 0.4f;
+            break;
+        }
     }
 
     /*void FixedUpdate(){
@@ -60,6 +93,7 @@ public class ControlAtaquesEnemigo : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(jugador_muerto) return;
         switch(estado)
         {
             case EstadosAtaqueEnemigo.esperando:
@@ -95,6 +129,120 @@ public class ControlAtaquesEnemigo : MonoBehaviour
     }
 
     void elegir_ataque()
+    {
+        JugadorMovimiento jugador = FindFirstObjectByType<JugadorMovimiento>();
+
+        bool jugador_agachado = false;
+
+        if(jugador != null)
+        {
+            jugador_agachado = jugador.esta_agachado;
+        }
+
+        switch(tipo_enemigo)
+        {
+            // ENEMIGO NORMAL
+            case TipoEnemigo.luchador:
+                ataques_luchador(jugador_agachado);
+            break;
+
+            // JEFE FINAL
+            case TipoEnemigo.jefe_final:
+                ataques_jefe_final(jugador, jugador_agachado);
+            break;
+        }
+    }
+    void ataques_luchador(bool jugador_agachado)
+    {
+        int ataque;
+        if(jugador_agachado)
+        {
+            ataque = Random.Range(0,2);
+            if(ataque == 0)
+            {
+                hacer_patada_debil();
+            }
+            else
+            {
+                hacer_patada_fuerte();
+            }
+        }
+        else
+        {
+            ataque = Random.Range(0,4);
+            switch(ataque)
+            {
+                case 0:
+                    hacer_golpe_debil();
+                break;
+
+                case 1:
+                    hacer_golpe_fuerte();
+                break;
+
+                case 2:
+                    hacer_patada_debil();
+                break;
+
+                case 3:
+                    hacer_patada_fuerte();
+                break;
+            }
+        }
+    }
+
+    void ataques_jefe_final(JugadorMovimiento jugador, bool jugador_agachado)
+    {
+        // SI EL JUGADOR SALTA
+        if(jugador != null && jugador.esta_saltando)
+        {
+            MovimientoEnemigo movimiento = GetComponent<MovimientoEnemigo>();
+            if(movimiento != null)
+            {
+                movimiento.saltar();
+            }
+        }
+
+        int ataque;
+        if(jugador_agachado)
+        {
+            ataque = Random.Range(0,2);
+            if(ataque == 0)
+            {
+                hacer_patada_debil();
+            }
+            else
+            {
+                hacer_patada_fuerte();
+            }
+        }
+        else
+        {
+            // SOLO ATAQUES FUERTES
+            ataque = Random.Range(0,2);
+            if(ataque == 0)
+            {
+                hacer_golpe_fuerte();
+            }
+            else
+            {
+                hacer_patada_fuerte();
+            }
+        }
+
+        // POSIBILIDAD DE SALTO ALEATORIO
+        int salto_random = Random.Range(0,100);
+        if(salto_random < 1)
+        {
+            MovimientoEnemigo movimiento = GetComponent<MovimientoEnemigo>();
+            if(movimiento != null)
+            {
+                movimiento.saltar();
+            }
+        }
+    }
+
+    /*void elegir_ataque()
     {
         JugadorMovimiento jugador = FindFirstObjectByType<JugadorMovimiento>();
 
@@ -140,7 +288,8 @@ public class ControlAtaquesEnemigo : MonoBehaviour
                 break;
             }
         }
-    }
+    }*/
+
 
     void calcular_nuevo_tiempo()
     {
@@ -222,5 +371,18 @@ public class ControlAtaquesEnemigo : MonoBehaviour
 
         golpe1.ataque_activo = false;
         golpe2.ataque_activo = false;
+    }
+
+    void victoria()
+    {
+        jugador_muerto = true;
+        estado = EstadosAtaqueEnemigo.muerto;
+        animator.SetTrigger("Victoria");
+
+        MovimientoEnemigo movimiento = GetComponent<MovimientoEnemigo>();
+        if(movimiento != null)
+        {
+            movimiento.a_quien_seguir = null;
+        }
     }
 }
