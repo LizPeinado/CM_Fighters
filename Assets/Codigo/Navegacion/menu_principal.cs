@@ -19,4 +19,7 @@ public class menu_principal : MonoBehaviour
         SceneManager.LoadSceneAsync(3);
     }
         
+    public void MenuPrincipal(){
+        SceneManager.LoadSceneAsync(0);
+    }
 }
