@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -1526964690268444965, guid: 561e35d6f4b83464db7286a9e72346cc, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7ef1142e737ab5f45ad804701e121b96, type: 2}
     - target: {fileID: 919132149155446097, guid: 561e35d6f4b83464db7286a9e72346cc, type: 3}
       propertyPath: m_Name
       value: JugadorCadaver
@@ -72,6 +76,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 2b8b8ba54ee7ec742b319c73b5d0a444, type: 2}
+    - target: {fileID: 7603786706384944740, guid: 561e35d6f4b83464db7286a9e72346cc, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1578c4b8cdbf7714b951551b047ab8b1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

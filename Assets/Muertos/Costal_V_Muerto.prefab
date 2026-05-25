@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6733390116258123807, guid: a79ddb78e14434740911c470b53f2bb3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 373b4764b663480459a0d8636e4f8975, type: 2}
     - target: {fileID: 919132149155446097, guid: a79ddb78e14434740911c470b53f2bb3, type: 3}
       propertyPath: m_Name
       value: Costal_V_Muerto
