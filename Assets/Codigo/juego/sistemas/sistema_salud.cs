@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(MonitorMuerte))]
+[RequireComponent(typeof(AudioSource))]
 
 public class Sistema_salud : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class Sistema_salud : MonoBehaviour
 
     public delegate void evento_muerte();
     public event evento_muerte al_morir_evento;
+
+    public AudioClip sonido_de_tieso;
 
     private int salud_restante{
         get => _salud_restante; 
@@ -71,6 +74,7 @@ public class Sistema_salud : MonoBehaviour
         if(animator != null)
         {
             animator.SetTrigger("RecibirGolpe");
+            GetComponent<AudioSource>().PlayOneShot(sonido_de_tieso);
         }
         Debug.Log($"[Sistema_salud] Salud: {salud_restante}");
 
