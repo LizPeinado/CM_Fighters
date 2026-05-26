@@ -11,7 +11,7 @@ public enum EstadosAtaqueEnemigo
 {
     esperando,
     atacando,
-    muerto
+    muerto,
 }
 
 public class ControlAtaquesEnemigo : MonoBehaviour

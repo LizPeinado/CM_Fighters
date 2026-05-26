@@ -95,10 +95,6 @@ public class MovimientoEnemigo : MonoBehaviour
             cambiar_estado(EstadosMovimiento.quieto);
         }
     }
-
-    void FixedUpdate(){
-    
-    }
  
     void cambiar_estado(EstadosMovimiento estado_nuevo)
     {

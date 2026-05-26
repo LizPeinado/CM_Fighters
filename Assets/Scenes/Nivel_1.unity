@@ -18511,10 +18511,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MovimientoEnemigo
   esta_saltando: 0
   fuerza_salto: 700
-  a_quien_seguir: {fileID: 1994613013}
+  a_quien_seguir: {fileID: 0}
   recibiendo_golpe: 0
-  hitbox_delantera_completa: {fileID: 1783963474}
-  hitbox_trasera_completa: {fileID: 233234191}
+  hitbox_delantera_completa: {fileID: 0}
+  hitbox_trasera_completa: {fileID: 0}
   hitbox_cabeza: {fileID: 0}
 --- !u!195 &2066232979
 NavMeshAgent:

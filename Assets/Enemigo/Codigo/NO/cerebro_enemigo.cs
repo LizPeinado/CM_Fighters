@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 
 public enum EnemigoEstados {
     quieto,
@@ -80,4 +80,4 @@ public class CerebroEnemigo : MonoBehaviour
             }
         }
     }
-}
+}*/
