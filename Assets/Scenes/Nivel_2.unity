@@ -1903,6 +1903,8 @@ GameObject:
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
   - component: {fileID: 330585549}
+  - component: {fileID: 330585551}
+  - component: {fileID: 330585550}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2072,6 +2074,116 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 789732af1a2f95e41ac13373b7532c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::menu_principal
+--- !u!114 &330585550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1addec5affcd89459fb293781d60890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioCamara
+  sonido_camara: {fileID: 8300000, guid: de8b9eb70bf8cd445964c3d641058281, type: 3}
+--- !u!82 &330585551
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.6
+  m_Pitch: 0.8
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 50
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 1
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &333786457
 GameObject:
   m_ObjectHideFlags: 0
@@ -8503,16 +8615,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1168760712}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45138746162301d4a9476ca3962f00f2, type: 3}
+  m_Script: {fileID: 11500000, guid: 1828c306712384a4783d2b99509f1ac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovimientoEnemigo
   esta_saltando: 0
   fuerza_salto: 700
-  a_quien_seguir: {fileID: 1823867953}
+  a_quien_seguir: {fileID: 0}
   recibiendo_golpe: 0
-  hitbox_delantera_completa: {fileID: 218335789}
-  hitbox_trasera_completa: {fileID: 1061813910}
-  hitbox_cabeza: {fileID: 1672798522}
+  hitbox_delantera_completa: {fileID: 0}
+  hitbox_trasera_completa: {fileID: 0}
+  hitbox_cabeza: {fileID: 0}
 --- !u!195 &1168760718
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -9501,13 +9613,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45138746162301d4a9476ca3962f00f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovimientoEnemigo
-  esta_saltando: 0
-  fuerza_salto: 700
-  a_quien_seguir: {fileID: 718436382}
-  recibiendo_golpe: 0
-  hitbox_delantera_completa: {fileID: 0}
-  hitbox_trasera_completa: {fileID: 0}
-  hitbox_cabeza: {fileID: 0}
 --- !u!195 &1315348982
 NavMeshAgent:
   m_ObjectHideFlags: 0
