@@ -8622,9 +8622,9 @@ MonoBehaviour:
   fuerza_salto: 700
   a_quien_seguir: {fileID: 1823867953}
   recibiendo_golpe: 0
-  hitbox_delantera_completa: {fileID: 0}
-  hitbox_trasera_completa: {fileID: 0}
-  hitbox_cabeza: {fileID: 0}
+  hitbox_delantera_completa: {fileID: 218335789}
+  hitbox_trasera_completa: {fileID: 1061813910}
+  hitbox_cabeza: {fileID: 1672798522}
 --- !u!195 &1168760718
 NavMeshAgent:
   m_ObjectHideFlags: 0

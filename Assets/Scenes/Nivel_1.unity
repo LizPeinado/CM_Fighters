@@ -18618,15 +18618,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2066232971}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45138746162301d4a9476ca3962f00f2, type: 3}
+  m_Script: {fileID: 11500000, guid: 1828c306712384a4783d2b99509f1ac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovimientoEnemigo
   esta_saltando: 0
   fuerza_salto: 700
-  a_quien_seguir: {fileID: 0}
+  a_quien_seguir: {fileID: 1994613013}
   recibiendo_golpe: 0
-  hitbox_delantera_completa: {fileID: 0}
-  hitbox_trasera_completa: {fileID: 0}
+  hitbox_delantera_completa: {fileID: 233234191}
+  hitbox_trasera_completa: {fileID: 1783963474}
   hitbox_cabeza: {fileID: 0}
 --- !u!195 &2066232979
 NavMeshAgent:

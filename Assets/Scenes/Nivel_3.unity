@@ -919,7 +919,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 85dc1ae9d70a40045968d381af95e924, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.8
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -15670,8 +15670,8 @@ MonoBehaviour:
   fuerza_salto: 700
   a_quien_seguir: {fileID: 1205110828}
   recibiendo_golpe: 0
-  hitbox_delantera_completa: {fileID: 0}
-  hitbox_trasera_completa: {fileID: 0}
+  hitbox_delantera_completa: {fileID: 782287890}
+  hitbox_trasera_completa: {fileID: 1252027550}
   hitbox_cabeza: {fileID: 0}
 --- !u!195 &1993842661
 NavMeshAgent:

@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 public class PantallaMorido : MonoBehaviour
 {
     public GameObject pantalla_a_mostrar;
-    public SpriteRenderer sprite_personaje;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,9 +16,4 @@ public class PantallaMorido : MonoBehaviour
         pantalla_a_mostrar.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
